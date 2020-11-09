@@ -1,0 +1,112 @@
+env:
+  # TERM variable
+  TERM: xterm-256color
+
+font:
+  normal:
+    family: CaskaydiaCove Nerd Font
+    style: book
+  bold:
+    family: FiraCode Nerd Font
+    style: bold
+
+  size: 12
+
+draw_bold_text_with_bright_colors: true
+
+colors:
+  primary:
+    background: "#000000"
+    foreground: "#5cdbad"
+  normal:
+    black: "0x1c1f24"
+    red: "0xff6c6b"
+    green: "0x43a156"
+    yellow: "0xda8548"
+    blue: "0x51afef"
+    magenta: "0xc678dd"
+    cyan: "0x5699af"
+    white: "0x202328"
+
+  # Bright colors
+  bright:
+    black: "0x5b6268"
+    red: "0xda8548"
+    green: "0x63ff6e"
+    yellow: "0xecbe7b"
+    blue: "0x3071db" # This is 2257a0 in Doom Emacs but I lightened it.
+    magenta: "0xa9a1e1"
+    cyan: "0x46d9ff"
+    white: "0xdfdfdf"
+
+  cursor:
+    text: "#94fa20"
+    cursor: "#e4fa20"
+
+background_opacity: 0.75
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: false
+
+# Mouse bindings
+#
+# Available fields:
+# - mouse
+# - action
+# - mods (optional)
+#
+# Values for `mouse`:
+# - Middle
+# - Left
+# - Right
+# - Numeric identifier such as `5`
+#
+# All available `mods` and `action` values are documented in the key binding
+# section.
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+cursor:
+  # Cursor style
+  #
+  # Values for 'style':
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Beam
+  vi_mode_style: Beam
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  unfocused_hollow: true
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  url:
+    launcher:
+      program: xdg-open
+      args: []
+
+key_bindings:
+  # (Windows, Linux, and BSD only)
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Add, mods: Control, action: IncreaseFontSize }
+  - { key: Subtract, mods: Control, action: DecreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+
+  - { key: Paste, action: Paste }
+  - { key: Copy, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: L, mods: Control, chars: "\x0c" }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt }
+  - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
+  - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
